@@ -18,21 +18,15 @@ margin = .8-answerP1Q1
 ##most likely not independent, but dependent
 
 #***Problem 2***
-#$$P1: Question 1$$
-AK = .67
-LA = .61
-NC = .52
-#assuming all these events are independent
-#4 diff ways to win out of ... 
-statesPossOutcomes= 2^3
-answerP1Q1 = 4/statesPossOutcomes
-##0.5
+##This is not enough info for me to make the decision. 
+##I would need to know the length of the delays because
+#If Delta's delays were significantly longer than those of United's
+#the 2% difference would not make up for the greater amount of lost time
 
-#$$P1: Question 2$$
-##The betting markets probability is .3 higher than our answer. 
-##This is so much higher because the events of the states are
-##most likely not independent, but dependent
-
+#***Problem 3***
+#$$P3: Section B$$
+#$$P3: Section C$$
+#$$P3: Section D$$
 
 
 
