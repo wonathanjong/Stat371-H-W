@@ -6,19 +6,19 @@ par(mfrow=c(2,3))
 plot(AAPL~SPY, data=marketmodel)
 plot(GOOG~SPY, data=marketmodel)
 plot(MRK~SPY, data=marketmodel)
-plot(JNG~SPY, data=marketmodel)
+plot(JNJ~SPY, data=marketmodel)
 plot(WMT~SPY, data=marketmodel)
 plot(TGT~SPY, data=marketmodel)
 par(mfrow=c(1,1))
 #Generally the stocks and spy are linear and positively correlated because the market moves together baby
 
 #Question 2
-lm(AAPL~SPY, data=marketmodel)
-lm(GOOG~SPY, data=marketmodel)
-lm(MRK~SPY, data=marketmodel)
-lm(JNG~SPY, data=marketmodel)
-lm(WMT~SPY, data=marketmodel)
-lm(TGT~SPY, data=marketmodel)
+model.aapl <- lm(AAPL~SPY, data=marketmodel)
+model.goog <- lm(GOOG~SPY, data=marketmodel)
+model.mrk <- lm(MRK~SPY, data=marketmodel)
+model.jnj <- lm(JNJ~SPY, data=marketmodel)
+model.wmt <- lm(WMT~SPY, data=marketmodel)
+model.tgt <- lm(TGT~SPY, data=marketmodel)
 
 cor(AAPL~SPY, data=marketmodel)
 cor(GOOG~SPY, data=marketmodel)
@@ -34,8 +34,8 @@ cor(TGT~SPY, data=marketmodel)
 
 #Question 4
 #The slope is equal to the expected percentage return of the given stock over the expected percentage return of the S&P 500.
-#'Because were comparing the expected returns of a singular stock to the returns of a basket idex fund we can tell whether the stock is under/out performing the market'
-#'
+#Because were comparing the expected returns of a singular stock to the returns of a basket idex fund we can tell whether the stock is under/out performing the market
+
 #Question 5
 AAPLbeta = (cov(SPY~AAPL, data=marketmodel)/var(marketmodel$SPY))
 print(AAPLbeta)
@@ -58,4 +58,16 @@ print(TGTbeta)
 #the beta reported by Yahoo finance. Any discrepancy can be explained by more recent data from Yahoo.
 
 #Question 7 
+correlation.aapl <- cor(resid(model.aapl), resid(model.wmt))
+print(correlation.aapl)
+correlation.goog <- cor(resid(model.goog), resid(model.wmt))
+print(correlation.goog)
+correlation.mrk <- cor(resid(model.mrk), resid(model.wmt))
+print(correlation.mrk)
+correlation.jnj <- cor(resid(model.jnj), resid(model.wmt))
+print(correlation.jnj)
+correlation.tgt <- cor(resid(model.tgt), resid(model.wmt))
+print(correlation.tgt)
 
+#yes, target's returns are the most correlated with walmart's.
+#The correlation between the residuals of target and the residuals of walmart are the highest at a value of 0.216 out of all the residuals correlation with residuals of walmart as the response variable.
